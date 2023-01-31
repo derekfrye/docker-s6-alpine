@@ -1,23 +1,19 @@
-[![Docker Build Status](https://img.shields.io/docker/build/oznu/s6-alpine.svg?label=x64%20build&style=for-the-badge)](https://hub.docker.com/r/oznu/s6-alpine/) [![Travis](https://img.shields.io/travis/oznu/docker-s6-alpine.svg?label=arm%20build&style=for-the-badge)](https://travis-ci.org/oznu/docker-s6-alpine)
-
 # s6-alpine
 
-This is a base Apline image with the [S6 Overlay](https://github.com/just-containers/s6-overlay)
-
-[Alpine Linux](https://alpinelinux.org/) + [S6 Overlay](https://github.com/just-containers/s6-overlay)
+This is an updated version of a [previously archived repository](https://github.com/oznu/docker-s6-alpine) base Alpine image with the [S6 Overlay](https://github.com/just-containers/s6-overlay).
 
 ## Usage
 
+You probably don't want to run this directly, you probably want to build it so you can then build and run [ddns](https://github.com/derekfrye/docker-cloudflare-ddns).
+
+Build:
+
+```shell
+docker buildx build --tag djf/alpine-s6 -f Dockerfile --platform linux/arm64 .
+```
+
+If you really want to run it (testing?), do:
+```shell
+docker run djf/alpine-s6
+```
 See the [S6 Overlay Documentation](https://github.com/just-containers/s6-overlay) for details on how to manage services.
-
-x86_64:
-
-```shell
-docker run oznu/s6-alpine
-```
-
-ARM:
-
-```shell
-docker run oznu/s6-alpine:armhf
-```
